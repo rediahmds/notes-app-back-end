@@ -11,7 +11,12 @@ class NotesHandler {
 
 	public postNoteHandler(request: Request, h: ResponseToolkit) {
 		try {
-			const noteID: string = this.service.addNote(request);
+			const requestPayload = request.payload as {
+				title: string;
+				body: string;
+				tags: string[];
+			};
+			const noteID: string = this.service.addNote(requestPayload);
 			const response: ResponseObject = h
 				.response({
 					status: 'success',
@@ -75,7 +80,12 @@ class NotesHandler {
 	public putNoteByIdHandler(request: Request, h: ResponseToolkit) {
 		try {
 			const { id } = request.params as { id: string };
-			this.service.editNoteByID(id, request);
+			const requestPayload = request.payload as {
+				title: string;
+				body: string;
+				tags: string[];
+			};
+			this.service.editNoteByID(id, requestPayload);
 			return {
 				status: 'success',
 				message: 'Catatan berhasil diperbarui',
