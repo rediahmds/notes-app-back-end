@@ -22,8 +22,8 @@ src
 `src`: there are two folders and a JS file inside, `api`, `services` and `server.js`
 
 - The `src/server.js` file still retains the same functionality, enabling the creation, configuration, and running of an Hapi HTTP server. Additionally, the plugin registration process will be handled within this file.
-- The `src/api` folder is to house the plugins that may be installed. So, each folder inside `src/api` represent a plugin and also a route. There is a specific folder called `src/api/notes` that serves as a plugin.
-  - Inside `src/api/notes` folder or inside each plugin folder, generally speaking, contains three JavaScript files, `handler.js`, `index.js` and `routes.js`
+- The `src/api` folder is to house any plugins that may be installed. So, each folder inside `src/api` represent a plugin and also a route. There is a specific folder called `src/api/notes` that serves as a plugin.
+  - Inside `src/api/notes` folder or inside each plugin folder, generally speaking, contains three JavaScript files, `handler.js`, `index.js` and `routes.js`. This directory is responsible to handle requests that comes to `/notes` endpoint
   - `index.js` is the place to define our plugin. It will consume both `routes.js` and `handler.js`
   - `routes.js` is the place where we define our `/notes` route and which function to handle the request.
   - `handler.js` is the place to define function to handle request that comes to `/notes` endpoint.
