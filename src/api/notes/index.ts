@@ -1,9 +1,9 @@
-import { Server } from 'hapi';
+import { Server, Plugin } from 'hapi';
 import { NotesService } from '../../services/inMemory/NotesService';
 import NotesHandler from './handlers';
 import routes from './routes';
 
-const notesPlugin = {
+const notesPlugin: Plugin<any> = {
 	name: 'notes',
 	version: '1.0.0',
 	register: async (server: Server, options: { service: NotesService }) => {
